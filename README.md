@@ -26,7 +26,7 @@ AI 学习者，喜欢写代码，也喜欢把实践和思考留在博客里。
   <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./assets/overview-mobile-dark.svg">
   <source media="(max-width: 600px)" srcset="./assets/overview-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="./assets/overview-dark.svg">
-  <img src="./assets/overview-light.svg" alt="近365天112次 Commit 贡献，14个自有公开非fork仓库，2个 Stars" width="900">
+  <img src="./assets/overview-light.svg" alt="近365天113次 Commit 贡献，14个自有公开非fork仓库，2个 Stars" width="900">
 </picture>
 </a>
 
@@ -41,8 +41,8 @@ AI 学习者，喜欢写代码，也喜欢把实践和思考留在博客里。
 
 <p><a href="https://github.com/KLucen?tab=repositories&amp;q=&amp;type=source&amp;language=HTML" title="HTML"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-language-48544d4c-dark.svg"><img src="./assets/link-language-48544d4c-light.svg" alt="HTML" width="132" height="40"></picture></a>
 <a href="https://github.com/KLucen?tab=repositories&amp;q=&amp;type=source&amp;language=TypeScript" title="TypeScript"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-language-54797065536372697074-dark.svg"><img src="./assets/link-language-54797065536372697074-light.svg" alt="TypeScript" width="142" height="40"></picture></a>
-<a href="https://github.com/KLucen?tab=repositories&amp;q=&amp;type=source&amp;language=Python" title="Python"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-language-507974686f6e-dark.svg"><img src="./assets/link-language-507974686f6e-light.svg" alt="Python" width="132" height="40"></picture></a>
 <a href="https://github.com/KLucen?tab=repositories&amp;q=&amp;type=source&amp;language=JavaScript" title="JavaScript"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-language-4a617661536372697074-dark.svg"><img src="./assets/link-language-4a617661536372697074-light.svg" alt="JavaScript" width="142" height="40"></picture></a>
+<a href="https://github.com/KLucen?tab=repositories&amp;q=&amp;type=source&amp;language=Python" title="Python"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-language-507974686f6e-dark.svg"><img src="./assets/link-language-507974686f6e-light.svg" alt="Python" width="132" height="40"></picture></a>
 <a href="https://github.com/KLucen?tab=repositories&amp;q=&amp;type=source&amp;language=Svelte" title="Svelte"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-language-5376656c7465-dark.svg"><img src="./assets/link-language-5376656c7465-light.svg" alt="Svelte" width="132" height="40"></picture></a>
 <a href="https://github.com/KLucen?tab=repositories&amp;q=&amp;type=source&amp;language=CSS" title="CSS"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-language-435353-dark.svg"><img src="./assets/link-language-435353-light.svg" alt="CSS" width="132" height="40"></picture></a>
 <a href="https://github.com/KLucen?tab=repositories&amp;q=&amp;type=source&amp;language=Astro" title="Astro"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-language-417374726f-dark.svg"><img src="./assets/link-language-417374726f-light.svg" alt="Astro" width="132" height="40"></picture></a>
@@ -54,7 +54,7 @@ AI 学习者，喜欢写代码，也喜欢把实践和思考留在博客里。
   <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./assets/activity-mobile-dark.svg">
   <source media="(max-width: 600px)" srcset="./assets/activity-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="./assets/activity-dark.svg">
-  <img src="./assets/activity-light.svg" alt="近365天125次公开贡献日历，自有公开非fork仓库范围" width="900">
+  <img src="./assets/activity-light.svg" alt="近365天126次公开贡献日历，自有公开非fork仓库范围" width="900">
 </picture>
 </a>
 

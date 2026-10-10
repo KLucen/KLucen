@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-10T10:42:12.826Z",
+  "generatedAt": "2026-10-10T10:47:33.727Z",
   "login": "KLucen",
   "timezone": "UTC",
   "profile": {
@@ -87,9 +87,11 @@
       "fork": false,
       "archived": false,
       "stars": 0,
-      "defaultBranch": null,
+      "defaultBranch": "main",
       "createdAt": "2026-10-10T09:21:49Z",
-      "languages": {}
+      "languages": {
+        "JavaScript": 115174
+      }
     },
     {
       "name": "KLucen.github.io",
@@ -185,18 +187,18 @@
     }
   ],
   "commits": {
-    "count": 112,
+    "count": 113,
     "from": "2025-10-11T00:00:00.000Z",
-    "to": "2026-10-10T10:42:10.303Z",
+    "to": "2026-10-10T10:47:32.319Z",
     "source": "GitHub GraphQL public commit contributions",
     "sourceReason": null,
     "scope": "Owned public non-fork repositories, including archived repositories; GitHub contribution eligibility rules apply.",
     "metric": "commit-contributions"
   },
   "contributions": {
-    "total": 125,
+    "total": 126,
     "counts": {
-      "commits": 112,
+      "commits": 113,
       "issues": 0,
       "pullRequests": 0,
       "reviews": 0,
@@ -2025,24 +2027,24 @@
       },
       {
         "date": "2026-10-10",
-        "count": 16,
+        "count": 17,
         "level": 3
       }
     ],
     "from": "2025-10-11T00:00:00.000Z",
-    "to": "2026-10-10T10:42:10.303Z",
+    "to": "2026-10-10T10:47:32.319Z",
     "source": "GitHub GraphQL; reconstructed from public repository nodes",
     "sourceReason": null,
     "scope": "Owned public non-fork repositories, including archived repositories. Private and external repositories excluded.",
     "kind": "public-contributions"
   },
   "languages": {
-    "totalBytes": 10666128,
+    "totalBytes": 10781302,
     "totals": {
       "HTML": 3318079,
       "TypeScript": 2787038,
+      "JavaScript": 1566407,
       "Python": 1507620,
-      "JavaScript": 1451233,
       "Svelte": 627019,
       "CSS": 498435,
       "Astro": 369398,
@@ -2050,22 +2052,22 @@
       "Stylus": 24732
     },
     "percentages": {
-      "HTML": 31.1086,
-      "TypeScript": 26.1298,
-      "Python": 14.1347,
-      "JavaScript": 13.606,
-      "Svelte": 5.8786,
-      "CSS": 4.6731,
-      "Astro": 3.4633,
-      "Jupyter Notebook": 0.7742,
-      "Stylus": 0.2319
+      "HTML": 30.7762,
+      "TypeScript": 25.8507,
+      "JavaScript": 14.5289,
+      "Python": 13.9837,
+      "Svelte": 5.8158,
+      "CSS": 4.6231,
+      "Astro": 3.4263,
+      "Jupyter Notebook": 0.7659,
+      "Stylus": 0.2294
     },
     "complete": true,
     "scope": "GitHub Linguist bytes in owned public non-fork repositories, including archived repositories; not time spent or proficiency.",
     "sourceReason": null
   },
   "collection": {
-    "authentication": "git-credential",
+    "authentication": "environment",
     "cacheUsed": [],
     "errors": [],
     "complete": true,
