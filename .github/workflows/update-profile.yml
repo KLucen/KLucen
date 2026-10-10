@@ -1,0 +1,56 @@
+name: Update profile dashboard
+
+on:
+  schedule:
+    - cron: '17 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-update-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test collection and rendering
+        run: npm test
+
+      - name: Collect public data and render dashboard
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROFILE_REQUIRE_COMPLETE: '1'
+          PROFILE_REQUIRE_GRAPHQL: '1'
+        run: npm run update
+
+      - name: Publish generated dashboard
+        env:
+          TARGET_BRANCH: ${{ github.ref_name }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- README.md ':(glob)assets/*-light.svg' ':(glob)assets/*-dark.svg' data/stats.json data/blog.json
+          if git diff --cached --quiet; then
+            printf 'Dashboard is already up to date.\n'
+            exit 0
+          fi
+          git commit -m 'chore: update public profile dashboard'
+          git push origin "HEAD:$TARGET_BRANCH"
