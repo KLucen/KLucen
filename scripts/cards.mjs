@@ -10,7 +10,7 @@ const COLORS = {
 const FALLBACK = ['#5d9ca3', '#be7c98', '#7fa16d', '#d28d55', '#8394bc', '#a784ad', '#759fa0', '#b7a764', '#b58268', '#87949e'];
 const number = (value) => typeof value === 'number' && Number.isFinite(value) && value >= 0;
 const escape = (value) => String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[character]));
-const count = (value) => number(value) ? Math.trunc(value).toLocaleString('en-US') : 'N/A';
+export const count = (value) => number(value) ? Math.trunc(value).toLocaleString('en-US') : 'N/A';
 const decimal = (value) => Number(value.toFixed(6));
 function date(value, includeTime = false) {
   const parsed = typeof value === 'string' ? new Date(value) : null;
@@ -50,6 +50,15 @@ function languageData(stats) {
   const languages = entries.filter(([, bytes]) => bytes > 0).sort((a, b) => b[1] - a[1]);
   if (languages.reduce((sum, [, bytes]) => sum + bytes, 0) !== source.totalBytes) return null;
   return { totalBytes: source.totalBytes, languages };
+}
+
+// The language legend is a fixed 2x5 grid, so at most 10 entries fit. Beyond
+// that the smallest languages are aggregated into one "Other" slice. Exported so
+// tests exercise this rule instead of restating it and drifting out of sync.
+export function collapseLanguages(languages) {
+  if (languages.length <= 10) return languages;
+  const rest = languages.slice(9).reduce((sum, [, bytes]) => sum + bytes, 0);
+  return [...languages.slice(0, 9), ['Other', rest]];
 }
 
 export function renderOverview(stats, theme = 'light', mobile = false) {
@@ -110,7 +119,7 @@ export function renderLanguages(stats, theme = 'light', mobile = false) {
   content += circle(centerX, centerY, radius, 'none', 'stroke="' + palette.line + '" stroke-width="23"');
   let shown = [];
   if (data?.totalBytes > 0) {
-    shown = data.languages.length <= 10 ? data.languages : [...data.languages.slice(0, 9), ['Other', data.languages.slice(9).reduce((sum, [, bytes]) => sum + bytes, 0)]];
+    shown = collapseLanguages(data.languages);
     let offset = 0;
     shown.forEach(([name, bytes], index) => {
       const color = COLORS[name] || FALLBACK[index % FALLBACK.length];

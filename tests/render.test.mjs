@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
-import { renderOverview, renderLanguages } from '../scripts/cards.mjs';
+import { collapseLanguages, count, renderOverview, renderLanguages } from '../scripts/cards.mjs';
 import { calendarWeeks, renderActivity, renderBlog, renderReadme } from '../scripts/render.mjs';
 
 const stats = JSON.parse(await readFile(new URL('../data/stats.json', import.meta.url), 'utf8'));
@@ -15,7 +15,13 @@ const cards = [
   ['activity', renderActivity, stats],
   ['blog', renderBlog, blog],
 ];
-const format = (value) => new Intl.NumberFormat('en-US').format(value);
+// scripts/cards.mjs writes every numeric attribute through Number(x.toFixed(6)),
+// so one written value carries up to 5e-7 of error and a chain of n of them
+// accumulates about n roundings. Expressing the tolerance from that bound keeps it
+// valid when the data changes instead of tuning it to today's byte ratios.
+const ROUNDING = 0.5e-6;
+const donutArcs = (tree) => (Array.isArray(tree.g.circle) ? tree.g.circle : [tree.g.circle])
+  .filter((circle) => circle && typeof circle === 'object' && circle['@stroke-dasharray']);
 const flatText = (xml) => {
   const strings = [];
   const visit = (node, key = '') => {
@@ -65,7 +71,9 @@ test('the calendar has one cell per date, uses Sunday rows, and preserves counts
     date: new Date(Date.UTC(2023, 9, 3 + i)).toISOString().slice(0, 10), count: i % 5, level: i % 5,
   }));
   for (const calendar of [synthetic, stats.contributions.calendar].filter((days) => days.length)) {
-    assert.equal(calendar.length, 365);
+    const span = Math.round((Date.parse(calendar.at(-1).date) - Date.parse(calendar[0].date)) / 86_400_000) + 1;
+    assert.equal(calendar.length, span, 'the window must hold exactly one cell per date');
+    assert.ok(span === 365 || span === 366, 'the contribution window must cover one full year, leap or not');
     const weeks = calendarWeeks(calendar);
     assert.ok(weeks.every((week) => week.length === 7));
     const days = weeks.flat().filter(Boolean);
@@ -125,29 +133,60 @@ test('language bytes and rounded percentages agree with public non-fork reposito
 test('language chart arc lengths use exact code-byte ratios without decorative minimum slices', () => {
   const data = structuredClone(stats);
   data.languages.percentages = Object.fromEntries(Object.keys(data.languages.totals).map((name) => [name, 99]));
-  const expected = Object.entries(data.languages.totals).filter(([, bytes]) => bytes > 0).sort((a, b) => b[1] - a[1]);
+  // Reuse the renderer's own slice selection rather than restating the legend cap,
+  // so this test keeps testing byte ratios when the number of drawn slices changes.
+  const ranked = Object.entries(data.languages.totals).filter(([, bytes]) => bytes > 0).sort((a, b) => b[1] - a[1]);
+  const expected = collapseLanguages(ranked);
   for (const { theme, mobile } of variants) {
     const tree = checkSvg(renderLanguages(data, theme, mobile), mobile);
-    const segments = tree.g.circle.filter((circle) => circle['@stroke-dasharray']);
+    const segments = donutArcs(tree);
     assert.equal(segments.length, expected.length);
+    assert.ok(segments.length > 0, 'a complete language inventory must draw at least one arc');
     let arcSum = 0;
     segments.forEach((segment, index) => {
       const [arc, gap] = segment['@stroke-dasharray'].split(/\s+/).map(Number);
       const circumference = 2 * Math.PI * Number(segment['@r']);
       assert.ok(Math.abs(arc + gap - circumference) < 0.000002);
       assert.ok(Math.abs(arc / circumference - expected[index][1] / data.languages.totalBytes) < 0.00000001);
-      assert.ok(Math.abs(Number(segment['@stroke-dashoffset']) + arcSum) < 0.000002);
+      assert.ok(Math.abs(Number(segment['@stroke-dashoffset']) + arcSum) < ROUNDING * (segments.length + 1));
       arcSum += arc;
     });
-    assert.ok(Math.abs(arcSum - 2 * Math.PI * Number(segments[0]['@r'])) < 0.00001);
+    assert.ok(Math.abs(arcSum - 2 * Math.PI * Number(segments[0]['@r'])) < ROUNDING * segments.length);
   }
+});
+
+test('a language inventory within the legend capacity draws one slice per language and no Other', () => {
+  const data = structuredClone(stats);
+  const totals = Object.fromEntries(Array.from({ length: 5 }, (_, i) => ['Lang' + i, 1_000_000 - i * 100_000]));
+  data.languages = { complete: true, totalBytes: 4_000_000, totals };
+  const tree = checkSvg(renderLanguages(data), false);
+  const segments = donutArcs(tree);
+  assert.equal(segments.length, 5, 'each language at or below the legend capacity must keep its own slice');
+  assert.doesNotMatch(flatText(renderLanguages(data)), /Other/);
+});
+
+test('the legend capacity boundary keeps ten languages whole and folds only the eleventh', () => {
+  const at = (size) => {
+    const totals = Object.fromEntries(Array.from({ length: size }, (_, i) => ['Lang' + i, 1_000_000 - i * 1_000]));
+    const data = structuredClone(stats);
+    data.languages = { complete: true, totalBytes: Object.values(totals).reduce((sum, bytes) => sum + bytes, 0), totals };
+    return renderLanguages(data);
+  };
+
+  const ten = at(10);
+  assert.equal(donutArcs(checkSvg(ten, false)).length, 10, 'ten languages must each keep their own slice');
+  assert.doesNotMatch(flatText(ten), /Other/, 'ten languages must fit the legend without aggregation');
+
+  const eleven = at(11);
+  assert.equal(donutArcs(checkSvg(eleven, false)).length, 10, 'the eleventh language must be folded into Other');
+  assert.match(flatText(eleven), /Other/);
 });
 
 test('small languages remain true proportions and only aggregate the remaining languages as Other', () => {
   const data = structuredClone(stats);
   data.languages = { complete: true, totalBytes: 1_000_066, totals: { Main: 1_000_000, ...Object.fromEntries(Array.from({ length: 11 }, (_, i) => ['Tiny' + i, 11 - i])) } };
   const tree = checkSvg(renderLanguages(data), false);
-  const segments = tree.g.circle.filter((circle) => circle['@stroke-dasharray']);
+  const segments = donutArcs(tree);
   assert.equal(segments.length, 10);
   const circumference = 2 * Math.PI * Number(segments[0]['@r']);
   assert.ok(Number(segments[0]['@stroke-dasharray'].split(' ')[0]) / circumference > 0.9999);
@@ -172,9 +211,9 @@ test('README picture sources select all local theme and size variants and carry 
     assert.equal(images.filter(([, source]) => /\/(overview|languages|activity|blog)-light\.svg$/.test(source)).length, 4);
     const overview = images.find(([, source]) => source.includes('overview'))[2];
     const activity = images.find(([, source]) => source.includes('activity'))[2];
-    assert.ok(overview.includes(format(data.commits.count)));
-    assert.ok(overview.includes(format(data.profile.publicRepos)));
-    assert.ok(activity.includes(format(data.contributions.total)));
+    assert.ok(overview.includes(count(data.commits.count)));
+    assert.ok(overview.includes(count(data.profile.publicRepos)));
+    assert.ok(activity.includes(count(data.contributions.total)));
     assert.match(overview, fallback ? /默认分支提交/ : /Commit 贡献/);
     assert.match(activity, fallback ? /默认分支提交/ : /公开贡献/);
     assert.match(readme, /代码字节/);
@@ -187,7 +226,9 @@ test('README links navigation, statistics, language filters and articles with st
   const readme = renderReadme(stats, blog);
   assert.doesNotMatch(readme, /<script\b|<style\b|\son\w+\s*=/i);
   assert.match(readme, /title="查看自动更新记录"/);
-  assert.match(readme, /language=Jupyter%20Notebook/);
+  for (const [language, bytes] of Object.entries(stats.languages.totals)) {
+    if (bytes > 0) assert.ok(readme.includes('language=' + encodeURIComponent(language)), 'the README must link the ' + language + ' repository filter');
+  }
   assert.match(readme, /#js-contribution-activity-description/);
   for (const name of ['status', 'trail']) {
     const position = readme.indexOf('./assets/' + name + '-static-mobile-dark.svg');

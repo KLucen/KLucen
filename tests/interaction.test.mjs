@@ -74,7 +74,9 @@ test('language links use complete source bytes and encode special language names
     assert.equal(url.searchParams.get('language'), link.label);
     assert.ok(link.url.endsWith(encodeURIComponent(link.label)));
   }
-  assert.deepEqual(languageLinks(stats).map(({ label }) => label), Object.entries(stats.languages.totals).filter(([, bytes]) => bytes > 0).sort((a, b) => b[1] - a[1]).map(([name]) => name));
+  // scripts/links.mjs orders equal byte counts by name; mirror that tie-break so a
+  // tie between two languages cannot make the rendered order disagree with the test.
+  assert.deepEqual(languageLinks(stats).map(({ label }) => label), Object.entries(stats.languages.totals).filter(([, bytes]) => bytes > 0).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([name]) => name));
 });
 
 test('incomplete, malformed, missing and zero language inventories produce no invented filters', () => {
