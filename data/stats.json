@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-11T07:45:19.748Z",
+  "generatedAt": "2026-11-12T08:20:57.937Z",
   "login": "KLucen",
   "timezone": "UTC",
   "profile": {
@@ -179,12 +179,12 @@
       "createdAt": "2026-10-27T04:51:16Z",
       "languages": {
         "JavaScript": 406,
-        "HTML": 1329,
-        "Rust": 69833,
-        "TypeScript": 928547,
-        "CSS": 41633,
-        "PowerShell": 39702,
-        "Python": 2411890
+        "HTML": 586,
+        "Rust": 31667,
+        "TypeScript": 362150,
+        "CSS": 41196,
+        "PowerShell": 16250,
+        "Python": 644940
       }
     },
     {
@@ -254,29 +254,24 @@
     }
   ],
   "commits": {
-    "count": 397,
-    "from": "2025-11-12T00:00:00.000Z",
-    "to": "2026-11-11T07:45:17.850Z",
+    "count": 410,
+    "from": "2025-11-13T00:00:00.000Z",
+    "to": "2026-11-12T08:20:55.505Z",
     "source": "GitHub GraphQL public commit contributions",
     "sourceReason": null,
     "scope": "Owned public non-fork repositories, including archived repositories; GitHub contribution eligibility rules apply.",
     "metric": "commit-contributions"
   },
   "contributions": {
-    "total": 434,
+    "total": 447,
     "counts": {
-      "commits": 397,
+      "commits": 410,
       "issues": 0,
       "pullRequests": 19,
       "reviews": 0,
       "repositories": 18
     },
     "calendar": [
-      {
-        "date": "2025-11-12",
-        "count": 0,
-        "level": 0
-      },
       {
         "date": "2025-11-13",
         "count": 0,
@@ -2084,7 +2079,7 @@
       },
       {
         "date": "2026-11-09",
-        "count": 2,
+        "count": 11,
         "level": 1
       },
       {
@@ -2094,48 +2089,53 @@
       },
       {
         "date": "2026-11-11",
-        "count": 1,
+        "count": 3,
+        "level": 1
+      },
+      {
+        "date": "2026-11-12",
+        "count": 2,
         "level": 1
       }
     ],
-    "from": "2025-11-12T00:00:00.000Z",
-    "to": "2026-11-11T07:45:17.850Z",
+    "from": "2025-11-13T00:00:00.000Z",
+    "to": "2026-11-12T08:20:55.505Z",
     "source": "GitHub GraphQL; reconstructed from public repository nodes",
     "sourceReason": null,
     "scope": "Owned public non-fork repositories, including archived repositories. Private and external repositories excluded.",
     "kind": "public-contributions"
   },
   "languages": {
-    "totalBytes": 16820634,
+    "totalBytes": 14424489,
     "totals": {
-      "Python": 4559444,
-      "TypeScript": 3962935,
-      "HTML": 3319464,
+      "TypeScript": 3396538,
+      "HTML": 3318721,
       "JavaScript": 3142300,
+      "Python": 2792494,
       "Svelte": 627019,
-      "CSS": 573815,
+      "CSS": 573378,
       "Astro": 413560,
       "Jupyter Notebook": 82574,
-      "Rust": 69833,
-      "PowerShell": 41343,
+      "Rust": 31667,
       "Stylus": 24732,
+      "PowerShell": 17891,
       "Inno Setup": 1869,
       "Shell": 1746
     },
     "percentages": {
-      "Python": 27.1063,
-      "TypeScript": 23.56,
-      "HTML": 19.7345,
-      "JavaScript": 18.6812,
-      "Svelte": 3.7277,
-      "CSS": 3.4114,
-      "Astro": 2.4586,
-      "Jupyter Notebook": 0.4909,
-      "Rust": 0.4152,
-      "PowerShell": 0.2458,
-      "Stylus": 0.147,
-      "Inno Setup": 0.0111,
-      "Shell": 0.0104
+      "TypeScript": 23.547,
+      "HTML": 23.0075,
+      "JavaScript": 21.7845,
+      "Python": 19.3594,
+      "Svelte": 4.3469,
+      "CSS": 3.975,
+      "Astro": 2.8671,
+      "Jupyter Notebook": 0.5725,
+      "Rust": 0.2195,
+      "Stylus": 0.1715,
+      "PowerShell": 0.124,
+      "Inno Setup": 0.013,
+      "Shell": 0.0121
     },
     "complete": true,
     "scope": "GitHub Linguist bytes in owned public non-fork repositories, including archived repositories; not time spent or proficiency.",
