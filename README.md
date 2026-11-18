@@ -26,7 +26,7 @@ AI 学习者，喜欢写代码，也喜欢把实践和思考留在博客里。
   <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./assets/overview-mobile-dark.svg">
   <source media="(max-width: 600px)" srcset="./assets/overview-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="./assets/overview-dark.svg">
-  <img src="./assets/overview-light.svg" alt="近365天435次 Commit 贡献，19个自有公开非fork仓库，4个 Stars" width="900">
+  <img src="./assets/overview-light.svg" alt="近365天437次 Commit 贡献，19个自有公开非fork仓库，4个 Stars" width="900">
 </picture>
 </a>
 
@@ -40,9 +40,9 @@ AI 学习者，喜欢写代码，也喜欢把实践和思考留在博客里。
 </a>
 
 <p><a href="https://github.com/KLucen?tab=repositories&amp;q=&amp;type=source&amp;language=TypeScript" title="TypeScript"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-language-54797065536372697074-dark.svg"><img src="./assets/link-language-54797065536372697074-light.svg" alt="TypeScript" width="142" height="40"></picture></a>
+<a href="https://github.com/KLucen?tab=repositories&amp;q=&amp;type=source&amp;language=Python" title="Python"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-language-507974686f6e-dark.svg"><img src="./assets/link-language-507974686f6e-light.svg" alt="Python" width="132" height="40"></picture></a>
 <a href="https://github.com/KLucen?tab=repositories&amp;q=&amp;type=source&amp;language=HTML" title="HTML"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-language-48544d4c-dark.svg"><img src="./assets/link-language-48544d4c-light.svg" alt="HTML" width="132" height="40"></picture></a>
 <a href="https://github.com/KLucen?tab=repositories&amp;q=&amp;type=source&amp;language=JavaScript" title="JavaScript"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-language-4a617661536372697074-dark.svg"><img src="./assets/link-language-4a617661536372697074-light.svg" alt="JavaScript" width="142" height="40"></picture></a>
-<a href="https://github.com/KLucen?tab=repositories&amp;q=&amp;type=source&amp;language=Python" title="Python"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-language-507974686f6e-dark.svg"><img src="./assets/link-language-507974686f6e-light.svg" alt="Python" width="132" height="40"></picture></a>
 <a href="https://github.com/KLucen?tab=repositories&amp;q=&amp;type=source&amp;language=Svelte" title="Svelte"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-language-5376656c7465-dark.svg"><img src="./assets/link-language-5376656c7465-light.svg" alt="Svelte" width="132" height="40"></picture></a>
 <a href="https://github.com/KLucen?tab=repositories&amp;q=&amp;type=source&amp;language=CSS" title="CSS"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-language-435353-dark.svg"><img src="./assets/link-language-435353-light.svg" alt="CSS" width="132" height="40"></picture></a>
 <a href="https://github.com/KLucen?tab=repositories&amp;q=&amp;type=source&amp;language=Astro" title="Astro"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-language-417374726f-dark.svg"><img src="./assets/link-language-417374726f-light.svg" alt="Astro" width="132" height="40"></picture></a>
@@ -58,7 +58,7 @@ AI 学习者，喜欢写代码，也喜欢把实践和思考留在博客里。
   <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./assets/activity-mobile-dark.svg">
   <source media="(max-width: 600px)" srcset="./assets/activity-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="./assets/activity-dark.svg">
-  <img src="./assets/activity-light.svg" alt="近365天476次公开贡献日历，自有公开非fork仓库范围" width="900">
+  <img src="./assets/activity-light.svg" alt="近365天478次公开贡献日历，自有公开非fork仓库范围" width="900">
 </picture>
 </a>
 
@@ -125,10 +125,10 @@ AI 学习者，喜欢写代码，也喜欢把实践和思考留在博客里。
 <details>
 <summary>数据口径与更新</summary>
 
-数据更新时间：2026-11-17（UTC）。卡片由本仓库每日自动生成，无需第三方统计卡片服务。
+数据更新时间：2026-11-18（UTC）。卡片由本仓库每日自动生成，无需第三方统计卡片服务。
 
 - 范围为自有公开非 fork 仓库，包含归档仓库；私有仓库和其他人的仓库不计入。
-- Commit 统计区间：2025-11-18 至 2026-11-17，遵循 GitHub Commit 贡献的资格规则。
+- Commit 统计区间：2025-11-19 至 2026-11-18，遵循 GitHub Commit 贡献的资格规则。
 - 贡献日历包含 Commit、Issue、PR、Review 和创建仓库，因此不等于 Commit 数，也不等于 GitHub 全主页贡献数。
 - 语言比例来自 GitHub Linguist 识别的代码字节；包含历史静态博客与仓库中的依赖代码，不代表熟练度，也不代表框架使用次数。语言按钮按 GitHub 仓库的主要语言筛选，不等于该语言存在的全部仓库。
 - 博客数量为 RSS 中的条目数，未声称覆盖全部文章。
