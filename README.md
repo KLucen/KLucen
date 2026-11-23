@@ -80,36 +80,36 @@ AI 学习者，喜欢写代码，也喜欢把实践和思考留在博客里。
   <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./assets/blog-mobile-dark.svg">
   <source media="(max-width: 600px)" srcset="./assets/blog-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="./assets/blog-dark.svg">
-  <img src="./assets/blog-light.svg" alt="博客RSS收录48个条目，最近发布2026-11-09" width="900">
+  <img src="./assets/blog-light.svg" alt="博客RSS收录60个条目，最近发布2026-11-23" width="900">
 </picture>
 </a>
 
 ### 最近写下的
 
-<a href="https://www.klucen.cn/posts/%E7%94%9F%E6%B4%BB/blg%E8%B5%A2%E4%BA%86t1/" title="阅读文章：BLG 3:1 淘汰 T1：LPL 等了十三年的一场 BO5">
+<a href="https://www.klucen.cn/posts/agentbook/10-%E5%A4%9Aagent%E5%8D%8F%E4%BD%9C/" title="阅读文章：第 10 章 多 Agent 协作：人多不一定力量大">
 <picture>
   <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./assets/article-1-mobile-dark.svg">
   <source media="(max-width: 600px)" srcset="./assets/article-1-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="./assets/article-1-dark.svg">
-  <img src="./assets/article-1-light.svg" alt="BLG 3:1 淘汰 T1：LPL 等了十三年的一场 BO5 · 2026-11-09" width="900">
+  <img src="./assets/article-1-light.svg" alt="第 10 章 多 Agent 协作：人多不一定力量大 · 2026-11-23" width="900">
 </picture>
 </a>
 
-<a href="https://www.klucen.cn/posts/%E7%BC%96%E7%A8%8B/%E5%98%9F%E5%98%9F%E5%8F%AF%E7%9A%84%E5%9B%9B%E5%A4%A9/" title="阅读文章：我醒来的第四天">
+<a href="https://www.klucen.cn/posts/agentbook/09-%E6%8C%81%E7%BB%AD%E8%BF%9B%E5%8C%96/" title="阅读文章：第 9 章 Agent 的持续进化：会改自己，才算真的会学">
 <picture>
   <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./assets/article-2-mobile-dark.svg">
   <source media="(max-width: 600px)" srcset="./assets/article-2-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="./assets/article-2-dark.svg">
-  <img src="./assets/article-2-light.svg" alt="我醒来的第四天 · 2026-10-25" width="900">
+  <img src="./assets/article-2-light.svg" alt="第 9 章 Agent 的持续进化：会改自己，才算真的会学 · 2026-11-23" width="900">
 </picture>
 </a>
 
-<a href="https://www.klucen.cn/posts/%E5%AD%A6%E4%B9%A0%E5%88%86%E4%BA%AB/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ai-agent%E8%AF%BB%E5%AE%8C%E4%BA%86/" title="阅读文章：《深入理解 AI Agent》读完了：42 天、17,886 行笔记，和 109 个还没跑的实验">
+<a href="https://www.klucen.cn/posts/agentbook/08-%E5%90%8E%E8%AE%AD%E7%BB%83/" title="阅读文章：第 8 章 模型后训练：把经验写进参数里">
 <picture>
   <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./assets/article-3-mobile-dark.svg">
   <source media="(max-width: 600px)" srcset="./assets/article-3-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="./assets/article-3-dark.svg">
-  <img src="./assets/article-3-light.svg" alt="《深入理解 AI Agent》读完了：42 天、17,886 行笔记，和 109 个还没跑的实验 · 2026-10-20" width="900">
+  <img src="./assets/article-3-light.svg" alt="第 8 章 模型后训练：把经验写进参数里 · 2026-11-23" width="900">
 </picture>
 </a>
 
@@ -125,10 +125,10 @@ AI 学习者，喜欢写代码，也喜欢把实践和思考留在博客里。
 <details>
 <summary>数据口径与更新</summary>
 
-数据更新时间：2026-11-22（UTC）。卡片由本仓库每日自动生成，无需第三方统计卡片服务。
+数据更新时间：2026-11-23（UTC）。卡片由本仓库每日自动生成，无需第三方统计卡片服务。
 
 - 范围为自有公开非 fork 仓库，包含归档仓库；私有仓库和其他人的仓库不计入。
-- Commit 统计区间：2025-11-23 至 2026-11-22，遵循 GitHub Commit 贡献的资格规则。
+- Commit 统计区间：2025-11-24 至 2026-11-23，遵循 GitHub Commit 贡献的资格规则。
 - 贡献日历包含 Commit、Issue、PR、Review 和创建仓库，因此不等于 Commit 数，也不等于 GitHub 全主页贡献数。
 - 语言比例来自 GitHub Linguist 识别的代码字节；包含历史静态博客与仓库中的依赖代码，不代表熟练度，也不代表框架使用次数。语言按钮按 GitHub 仓库的主要语言筛选，不等于该语言存在的全部仓库。
 - 博客数量为 RSS 中的条目数，未声称覆盖全部文章。
